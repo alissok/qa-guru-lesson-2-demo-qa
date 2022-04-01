@@ -1,4 +1,4 @@
-package guru.qa.web;
+package guru.qa.tests;
 
 import org.junit.jupiter.api.*;
 import com.codeborne.selenide.Configuration;
