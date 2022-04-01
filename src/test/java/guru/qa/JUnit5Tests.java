@@ -1,10 +1,8 @@
 package guru.qa;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.*;
 
-public class SimpleTest {
+public class JUnit5Tests {
 
     @BeforeAll
     static void initDB() {
@@ -14,7 +12,7 @@ public class SimpleTest {
     @BeforeEach
     void openYaPage() {
         System.out.println("###     @BeforeEach");
-        Selenide.open("https://ya.ru");
+//        Selenide.open("https://ya.ru");
     }
 
     @Test
@@ -38,7 +36,7 @@ public class SimpleTest {
     @AfterEach
     void closeYa() {
         System.out.println("###     @AfterEach");
-        WebDriverRunner.closeWindow();
+//        WebDriverRunner.closeWindow();
     }
 
     @AfterAll
