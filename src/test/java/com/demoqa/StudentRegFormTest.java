@@ -1,8 +1,7 @@
-package guru.qa.tests;
+package com.demoqa;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-import io.netty.util.internal.InternalThreadLocalMap;
 import org.junit.jupiter.api.*;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -53,33 +52,32 @@ public class StudentRegFormTest {
     int month = 11;
     String year = "2006";
     String day = "013";
+    String filename = "reallife.jpg";
+    String subject  = "Art";
 
     @Test
     void fillRegform() {
 
         open("/automation-practice-form");
 
-//        $("#firstName").setValue(firstName);
-//        $("#lastName").setValue(lastName);
-//        $("#userEmail").setValue(userEmail);
-//        $("#currentAddress").setValue(currAddress);
-//        $("#userNumber").setValue(mobile);
-
-        //$(byText("Female")).click(); // this option works
-        //$(byText("Music")).click(); // this option works
-//        $(genterSelector).$(byText(gender)).click();
-        //$("[id=genterWrapper] label").click(); // this option works
-//        $(stateAndCitySelector).$(byText("Select State")).click();
-//        $(stateAndCitySelector).$(byText(state)).click();
-//        $(stateAndCitySelector).$(byText("Select City")).click();
-//        $(stateAndCitySelector).$(byText(city)).click();
-//        $(hobbiesSelector).$(byText("Sports")).click();
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(userEmail);
+        $(genterSelector).$(byText(gender)).click();
+        $("#userNumber").setValue(mobile);
         $(dateOfBirthSelector).$(byId("dateOfBirthInput")).click();
- //       $("#dateOfBirthInput").$(byId("dateOfBirthInput")).setd;
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
         $(".react-datepicker__day--"+day).click();
-
-        //        $("[id=submit]").click();
+        $("#subjectsInput").setValue(subject).pressEnter();
+        $(hobbiesSelector).$(byText("Sports")).click();
+        $("#uploadPicture").uploadFromClasspath(filename);
+        $("#currentAddress").setValue(currAddress);
+        $(stateAndCitySelector).$(byText("Select State")).click();
+        $(stateAndCitySelector).$(byText(state)).click();
+        $(stateAndCitySelector).$(byText("Select City")).click();
+        $(stateAndCitySelector).$(byText(city)).click();
+        $("#submit").scrollTo();
+        $("#submit").click();
     }
 }
